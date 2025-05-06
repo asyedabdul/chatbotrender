@@ -17,3 +17,7 @@ async def chat(request: Request):
     )
     answer = response['choices'][0]['message']['content']
     return JSONResponse(content={"answer": answer})
+    
+@app.get("/")
+def home():
+    return {"message": "SiteWise Bot is running. POST to /chat with a question."}
