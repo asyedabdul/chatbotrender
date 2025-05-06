@@ -1,6 +1,16 @@
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from openai import OpenAI
 import os
+
+app = FastAPI()
+
+# ✅ Load API key
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+@app.get("/")
+def home():
+    return {"message": "SiteWise Bot is running. POST to /chat."}
 
 @app.post("/chat")
 async def chat(request: Request):
