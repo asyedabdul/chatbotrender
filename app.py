@@ -6,7 +6,7 @@ import os
 app = FastAPI()
 
 # ✅ Load API key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("sitewisebotkey"))
 
 @app.get("/")
 def home():
